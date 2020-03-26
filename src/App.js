@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import {HashRouter,Link,Route,Redirect,Switch} from 'react-router-dom'
-import Login from './pages/Login'
-import Admin from './pages/Admin'
-
+import Loadable from './untils/loadable'
+// import Login from './pages/Login/loadableLogin'
+// import Admin from './pages/Admin'
+const Login = Loadable(()=>import('./pages/Login'))
+const Admin = Loadable(()=>import('./pages/Admin'))
 class App extends Component{
   render(){
     return(
