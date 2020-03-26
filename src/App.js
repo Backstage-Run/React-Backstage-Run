@@ -1,12 +1,24 @@
-import React from 'react';
+import React,{Component} from 'react';
+import {HashRouter,Link,Route,Redirect,Switch} from 'react-router-dom'
+import Login from './pages/Login'
+import Admin from './pages/Admin'
 
-function App() {
-  return (
-    <div className="App">
-      111222
-      <p>app</p>
-    </div>
-  );
+class App extends Component{
+  render(){
+    return(
+      <HashRouter>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/admin" render={()=>{
+            return(
+              <Admin>
+                
+              </Admin>
+            )
+          }}></Route>
+
+      </HashRouter>
+    )
+  }
 }
 
 export default App;
