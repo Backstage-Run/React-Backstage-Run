@@ -2,7 +2,7 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { Spin} from 'antd';
 
-function loadings(){
+function LogingComponent(){
    return(
     <div style={{width:'100vw',height:'100vh',display:'flex',alignItems:'center',justifyContent:'center',}}>
     <Spin tip="正在努力加载..." size="large">
@@ -11,9 +11,9 @@ function loadings(){
     </div>
    )
 }
-export default (components)=>{
+export default (LoadComponent)=>{
    return Loadable({
-       loader:components,
-       loading:loadings
+       loader:LoadComponent,
+       loading:LogingComponent
    })
 }

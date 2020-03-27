@@ -24,16 +24,16 @@ class CustomNav extends Component{
         switch (icon) {
           case 'home':
             return <Icon type="setting" />
-            break;
+         
           case 'user':
             return <Icon type="user" />
-            break
+         
           case 'list':
             return <Icon type="team" />
-            break
+          
           case 'add':
             return <Icon type="user-add" />
-            break      
+                
           default:
             break;
         }

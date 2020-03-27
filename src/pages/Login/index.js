@@ -1,17 +1,27 @@
 import React,{Component} from 'react'
 import Style from './index.module.less'
-import Cat from './cat.png'
 import { Form, Input, Button, Checkbox, Icon,message  } from 'antd';
 class Login extends Component{
+  login=()=>{
+    let {validateFields} = this.props.form
+    validateFields((err,success)=>{
+      if(err){
+        message.error('输入有误请重试',1)
+      }else{
+        console.log(success)
+        
+       
+      }
+   })
+  }
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
-            <div className="login">
+            <div className={Style.login}>
               <div className={Style.content}>
                   {/* 头部logo title区 */}
                   <div className={Style.top}>
                       <div className={Style.logo}>
-                          <img src={Cat} width="80" height="50"/>
                           <p>Second hand cat Admin</p>
                       </div>
                   </div>
@@ -50,7 +60,7 @@ class Login extends Component{
             Forgot password
           </a>
           <br/>
-          <Button type="primary" htmlType="submit" className="login-form-button" style={{width:'100%'}}>
+          <Button type="primary" htmlType="submit" className="login-form-button" style={{width:'100%'}} onClick={this.login}>
             Log in
           </Button>
        

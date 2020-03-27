@@ -1,6 +1,8 @@
-body,
-html {
-  background: #f0f2f5;
+.login {
+  position: relative;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
   background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584972264857&di=e2d37da8123af61d676426bbfdd807ac&imgtype=0&src=http%3A%2F%2Fimage.res.meizu.com%2Fget%2Fflymebbs%2Fforum%2F201506%2F05%2F083806zhhqyj7yizri7yzy.jpg);
   background-attachment: fixed;
 }
