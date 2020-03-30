@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
-import {HashRouter,Link,Route,Redirect,Switch} from 'react-router-dom'
+import {HashRouter,Route} from 'react-router-dom'
 import Loadable from './untils/loadable'
-// import Login from './pages/Login/loadableLogin'
-// import Admin from './pages/Admin'
 import TokenModel from './components/tokenModel'
-import User from './pages/User'
+
+import Banner from './pages/Banner'
+import BannerAdd from './pages/BannerAdd'
+const Index = Loadable(()=>import('./pages/Echarts'))
 const Login = Loadable(()=>import('./pages/Login'))
 const Admin = Loadable(()=>import('./pages/Admin'))
 class App extends Component{
@@ -15,7 +16,9 @@ class App extends Component{
           <Route path="/admin" render={()=>{
             return(
               <Admin>
-                  <Route path="/admin/user" component={User}></Route>
+                  <Route path="/admin/home" component={Index}></Route>
+                  <Route path="/admin/banner" component={Banner}></Route>
+                  <Route path="/admin/banneradd" component={BannerAdd}></Route>
               </Admin>
             )
           }}></Route>

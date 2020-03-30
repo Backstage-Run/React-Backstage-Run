@@ -4,8 +4,10 @@ import CustomNav from '../../components/CustomNav'
 import Style from './index.module.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import HeaderNav from '../../components/HeaderNav'
 const { Header, Content, Footer, Sider } = Layout;
 class Admin extends Component{
+
     render(){
       let {show} = this.props
         return(
@@ -17,14 +19,16 @@ class Admin extends Component{
       <CustomNav></CustomNav>
     </Sider>
     <Layout>
-      <Header className={Style.headers}>这里是头头</Header>
+      <Header className={Style.headers}>
+        <HeaderNav></HeaderNav>
+      </Header>
       <Content style={{ margin: '24px 16px 0' }}>
         
-         {this.props.children}
+        {this.props.children}
 
         
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Back Stage ©2018 </Footer>
     </Layout>
   </Layout>
           }

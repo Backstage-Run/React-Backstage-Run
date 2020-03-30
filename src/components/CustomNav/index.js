@@ -33,7 +33,8 @@ class CustomNav extends Component{
           
           case 'add':
             return <Icon type="user-add" />
-                
+          case 'banner':
+            return <Icon type="bold" />      
           default:
             break;
         }

@@ -37,5 +37,11 @@ export default [
               path:'/admin/goodsadd'  
             }
         ]
-    }
+    },
+    {
+        key:'4',
+        title:'轮播图管理',
+        icon:'banner',     
+        path:'/admin/banner'
+    },
 ]

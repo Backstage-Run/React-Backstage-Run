@@ -1,6 +1,11 @@
 import React,{Component} from 'react'
 import Style from './index.module.less'
+import apiLogin from '../../api/login'
 import { Form, Input, Button, Checkbox, Icon,message  } from 'antd';
+import actionCreator from '../../store/actionCreatore'
+import {connect} from 'react-redux'
+import {bindActionCreators } from 'redux'
+import {withRouter} from 'react-router-dom'
 class Login extends Component{
   login=()=>{
     let {validateFields} = this.props.form
@@ -8,8 +13,21 @@ class Login extends Component{
       if(err){
         message.error('输入有误请重试',1)
       }else{
-        console.log(success)
-        
+        let username = success.userName
+        let password = success.passWord
+          apiLogin.gologin({username,password}).then((res)=>{
+              if(res.code){
+                message.error('用户名或密码错误',1)
+              }else{
+                message.success('登录成功，1秒后自动跳转',1,()=>{
+                  //  actionCreator.changeTokenModal(false)
+                  sessionStorage.setItem('token',1234)
+                  // this.props.changeTokenModal(false)
+                  this.props.changeTokenModal(false)
+                  this.props.history.replace('/admin/home')
+                })
+              }
+          })
        
       }
    })
@@ -73,4 +91,6 @@ class Login extends Component{
         )
     }
 }
-export default Form.create()(Login);
+export default Form.create()(connect(state=>state,(dispatch)=>{
+  return bindActionCreators(actionCreator,dispatch)
+})(withRouter(Login)));
