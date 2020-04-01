@@ -131,7 +131,7 @@ class Banner extends Component {
                     onCancel={this.handleCancel}
                 >
                     _id:<Input ref='id' value={_id} /><br /><br />
-         选择图片:<input type="file" ref='img' /><Button onClick={() => {
+         选择图片:<input type="file" ref='img' style={{border:'0px'}}/><Button onClick={() => {
                         this.upload()
                     }}>点击上传</Button><br /><br />
 

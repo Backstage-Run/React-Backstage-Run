@@ -39,7 +39,7 @@ class BannerAdd extends Component {
                     <Card title="轮播图添加" extra={<Button type="primary" icon="plus" onClick={() => {
                         this.props.history.push('/admin/banner')
                     }}>返回</Button>}>
-                        图片上传<input type="file" ref="img" /><Button onClick={() => {
+                        图片上传：<input type="file" ref="img" style={{border:'0px'}}/><Button onClick={() => {
                             this.upload()
                         }}>点击上传</Button><br /><br />
                         {show || <img alt="" src={imgsrc} width="600" height="300" />}<br /><br />
