@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './store/store'
 import { Provider } from 'react-redux'
+import './untils/require'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './untils/require'
 
 ReactDOM.render(
   <Provider store={store}>

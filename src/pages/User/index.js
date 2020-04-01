@@ -20,7 +20,7 @@ class User extends Component {
                 dataIndex: 'headimg',
                 key: 'headimg',
                 render(kind) {
-                    return (<img style={{ borderRadius: '50%' }} width='80' height='80' src={kind} />)
+                    return (<img alt="" style={{ borderRadius: '50%' }} width='80' height='80' src={kind} />)
                 }
             },
             {
@@ -109,7 +109,11 @@ class User extends Component {
         this.renderadmin();
     }
     renderadmin = async () => {
+        data.list().then(res => {
+            console.log(res)
+        })
         let result = await data.list()
+        console.log(result)
         this.setState({
             dataSource: result.info
         })
@@ -200,7 +204,7 @@ class User extends Component {
         }
     }
     render() {
-        let { dataSource, columns, modifiy, city, hehe, local, spinning, loding, visible, headimg, name, password, email, introduction, phone, address } = this.state
+        let { dataSource, columns, modifiy, city, hehe, local, spinning, loding, visible, headimg, name, password, email, introduction, phone } = this.state
         return (
             <div className="user">
                 <Card title="管理员列表" extra={<Button type="success" icon="plus" onClick={() => {
@@ -233,7 +237,7 @@ class User extends Component {
                         this.setState({ phone: e.target.value })
                     }} /><br /><br />
                   头像:<input type="file" ref="file" /> <Button onClick={this.upload} type="success">上传</Button> <br /><br />
-                    <div>缩略图: <img className={Style.small_img} src={headimg} /></div><br />
+                    <div>缩略图: <img alt="" className={Style.small_img} src={headimg} /></div><br />
 
                     地址：<select ref="city" onChange={(e) => this.getValue(e)}>
                         {city.slice(0, 30).map((item, index) => {
@@ -279,7 +283,7 @@ class User extends Component {
                         this.setState({ phone: e.target.value })
                     }} /><br /><br />
                   头像:<input type="file" ref="file" /> <Button onClick={this.upload} type="success">上传</Button> <br /><br />
-                    <div>缩略图: <img className={Style.small_img} src={headimg} /></div><br />
+                    <div>缩略图: <img alt="" className={Style.small_img} src={headimg} /></div><br />
                     地址：<select ref="city" onChange={(e) => this.getValue(e)}>
                         {city.slice(0, 30).map((item, index) => {
                             return (
@@ -306,3 +310,4 @@ class User extends Component {
     }
 }
 export default User
+

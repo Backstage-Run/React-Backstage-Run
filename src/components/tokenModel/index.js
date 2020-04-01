@@ -1,19 +1,34 @@
 import React,{Component, Fragment} from 'react'
-import {Button} from 'antd'
+import {Button,Result} from 'antd'
 import {withRouter} from 'react-router-dom'
+import actionCreator from '../../store/actionCreatore'
 import {connect} from 'react-redux'
+import {bindActionCreators } from 'redux'
 class TokenModel extends Component{
+    componentDidMount(){
+        if(sessionStorage.getItem('token')){
+            this.props.changeTokenModal(false)
+        }else{
+            this.props.changeTokenModal(true)
+        }
+    }
     render(){
         let {show} = this.props
         return(
             <Fragment>
                 {!show||
-                <div className="token" style={{background:'yellowgreen',position:'fixed',top:'0',bottom:'0',left:'0',right:'0'}}>无权访问，请移步登录页面<Button onClick={()=>{
-                    console.log(this)
-                    // this.props.changeTokenModal(false)
+                <Result
+                style={{position:'fixed',top:'0',bottom:'0',left:'0',right:'0'}}
+                status="403"
+                title="请登录后再访问！"
+                subTitle="Sorry, please login and visit again."
+                extra={<Button type="primary" onClick={()=>{
                     this.props.history.replace('/login')
-                  }}>点击返回登录</Button>
-                </div>
+                  }}>去登录</Button>}
+              >              
+              </Result>
+                
+                
                 
                 }
             </Fragment>
@@ -22,4 +37,6 @@ class TokenModel extends Component{
     }
 }
 
-export default connect(state=>state)(withRouter(TokenModel));
+export default connect(state=>state,(dispatch)=>{
+    return bindActionCreators(actionCreator,dispatch)
+  })(withRouter(TokenModel))

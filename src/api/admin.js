@@ -1,6 +1,7 @@
 import axios from 'axios'
 class Admin {
     list() {
+        console.log(1)
         let url = 'http://47.110.58.129:1913/admin/get_all'
         return axios.get(url)
     }

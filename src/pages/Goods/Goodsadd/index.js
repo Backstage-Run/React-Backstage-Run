@@ -71,7 +71,7 @@ class Goodsadd extends Component {
                     this.setState({ goodsStore: e.target.value })
                 }} /><br />
                 <label >商品图片:</label> <input ref="file" type="file" className={Style.file} /><Button onClick={this.uploadimg} type="primary">上传</Button><br />
-                <label > 缩略图:</label><img className={Style.small_img} src={imgsrc} /><br />
+                <label > 缩略图:</label><img alt="" className={Style.small_img} src={imgsrc} /><br />
                 <Button onClick={this.submit} className={Style.submit} type="primary">提交</Button>
             </Card>
         )

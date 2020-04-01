@@ -49,7 +49,7 @@ class Goodslist extends Component {
                     dataIndex: 'imgsrc',
                     key: 'imgsrc',
                     render(kind) {
-                        return (<img width='80' height='80' src={kind} />)
+                        return (<img alt="" width='80' height='80' src={kind} />)
                     }
                 },
                 {
@@ -200,7 +200,7 @@ class Goodslist extends Component {
                             this.setState({ goodsStore: e.target.value })
                         }} /><br /><br />
                   商品图片:<input type="file" ref="file" /> <Button onClick={this.upload} type="success">上传</Button> <br /><br />
-                        <div>缩略图: <img className={Style.small_img} src={imgsrc} /></div><br />
+                        <div>缩略图: <img alt="" className={Style.small_img} src={imgsrc} /></div><br />
                     </Modal>
                 </Card>
 
